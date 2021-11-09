@@ -10,13 +10,13 @@ class Controller {
             var filterResult = checkUser(req.body.userName);
             
             if (filterResult === undefined) {
-                res.json({ success: false, errorMessage: "Wrong Username" });
+                res.json({ success: false, errorMessage: "username or password is incorrect" });
             } else {
                 if (filterResult[0]?.password === req.body.password) {
                     res.json({ success: true, errorMessage: null });
                 }
                 else {
-                    res.json({ success: false, errorMessage: "Wrong Password" });
+                    res.json({ success: false, errorMessage: "username or password is incorrect" });
                 }
             }
         } catch (error) {
